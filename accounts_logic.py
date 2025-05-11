@@ -12,8 +12,6 @@ class Logic(QDialog, Ui_AccountsMainWindow):
         super().__init__()
         self.setupUi(self)
 
-        self.__deposit_count = 0
-
         self.loginButton.clicked.connect(lambda: self.login())
         self.withdrawButton.clicked.connect(lambda: self.withdraw())
         self.depositButton.clicked.connect(lambda: self.deposit())
@@ -66,6 +64,7 @@ class Logic(QDialog, Ui_AccountsMainWindow):
                         self.savingsDisplay.setText('SAVINGS ACCOUNT')
                         self.__minimum = float(row[5])
                         self.__rate = float(row[6])
+                        self.__deposit_count = 0
                     else:
                         self.__savings_account = False
 
